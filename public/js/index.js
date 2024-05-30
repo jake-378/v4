@@ -111,7 +111,9 @@ console.log(localStorage.getItem('theme'))
 
 // Panic
 document.addEventListener('keydown', async (e) => {
-  if (localStorage.getItem('panickey') && localStorage.getItem('panickey') == e.key) window.parent.window.location.replace(localStorage.getItem('panicurl') || 'https://classroom.google.com/h')
+  panicurl = localStorage.getItem('panicurl');
+  if(!panicurl.includes("https://")||!panicurl.includes("http://")){validpanicurl="https://"+panicurl}
+  if (localStorage.getItem('panickey') && localStorage.getItem('panickey') == e.key) window.parent.window.location.replace(validpanicurl) || 'https://classroom.google.com/h')
 })
 
 // Debug
